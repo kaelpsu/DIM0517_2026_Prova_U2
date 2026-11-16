@@ -32,4 +32,7 @@ jobs:
     needs: [build]
     env:
       TAG: "build-${{ github.run_id }}"
+    steps:
+      - name: Printa tag
+        run: echo $TAG
 
