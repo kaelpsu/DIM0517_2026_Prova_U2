@@ -30,9 +30,15 @@ jobs:
   tagging:
     runs-on: ubuntu-latest
     needs: [build]
-    env:
-      TAG: "build-${{ github.run_id }}"
     steps:
-      - name: Printa tag
-        run: echo $TAG
+      - uses: actions/checkout@v4
+      - run: |
+          TAG="build-${{ github.run_id }}"
+          echo "TAG=${TAG}" >> $GITHUB_ENV
+          
+      - uses: qoomon/actions--create-tag@v1
+        with:
+          name: ${{ env.TAG }}
+
+      - run: git push origin "${TAG}"
 
