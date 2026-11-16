@@ -32,7 +32,7 @@ jobs:
       - uses: actions/checkout@v7
       
       - name: Construir a imagem
-        run: docker build -t imagem-app:ci .
+        run: docker build -t imagem-app:ci ./java
         
       - name: Subir o contêiner
         run: docker run -d --name app -p 8080:8080 imagem-app:ci
