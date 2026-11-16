@@ -1,5 +1,11 @@
 name: Java
 
+on:
+  pull_request:
+    types:
+      closed
+    branches:
+      - develop
 
 jobs:
   build:
@@ -20,4 +26,10 @@ jobs:
 
       - name: Build
         run: mvn -B compile
+
+  tagging:
+    runs-on: ubuntu-latest
+    needs: [build]
+    env:
+      TAG: "build-${{ github.run_id }}"
 
