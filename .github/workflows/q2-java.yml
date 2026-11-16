@@ -22,7 +22,7 @@ jobs:
           java-version: "21"
           cache: maven
       - name: Tests
-        run: mvn tests
+        run: mvn test
       - name: Build
         run: mvn -B compile
 
