@@ -5,9 +5,9 @@ on:
     branches:
       - 'feature/**'
     paths:
-      - 'src/**'
-      - 'Dockerfile'
-      - 'pom.xml'
+      - 'java/src/**'
+      - 'java/Dockerfile'
+      - 'java/pom.xml'
 
 jobs:
   build:
